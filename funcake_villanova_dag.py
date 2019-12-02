@@ -75,7 +75,7 @@ AIRFLOW_DATA_BUCKET = Variable.get("AIRFLOW_DATA_BUCKET")
 
 # Publication-related Solr URL, Configset, Alias
 SOLR_CONN = BaseHook.get_connection("SOLRCLOUD")
-SOLR_CONFIGSET = Variable.get("VILLANOVA_SOLR_CONFIGSET", default_var="funcake-oai-1")
+SOLR_CONFIGSET = Variable.get("VILLANOVA_SOLR_CONFIGSET", default_var="funcake-oai-0")
 TARGET_ALIAS_ENV = Variable.get("VILLANOVA_TARGET_ALIAS_ENV", default_var="dev")
 
 # Define the DAG
@@ -220,7 +220,7 @@ REFRESH_COLLECTION_FOR_ALIAS = tasks.refresh_sc_collection_for_alias(
 
 PUBLISH = BashOperator(
     task_id="publish",
-    bash_command=SCRIPTS_PATH + "index.sh ",
+    bash_command=SCRIPTS_PATH + "/index.sh ",
     env={
         "BUCKET": AIRFLOW_DATA_BUCKET,
         "FOLDER": DAG.dag_id + "/{{ ti.xcom_pull(task_ids='set_collection_name') }}/transformed-filtered/",
