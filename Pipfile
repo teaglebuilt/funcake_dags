@@ -9,15 +9,14 @@ pytest = "*"
 apache-airflow = "*"
 localstack = "*"
 moto = "*"
-
-[packages]
 tulflow = "==0.6.0"
-pexpect = "*"
 xmltodict = "*"
 sickle = "*"
 awscli = "*"
 boto3 = "*"
 lxml = "==4.4.3"
+
+[packages]
 
 [requires]
 python_version = "3.6"
