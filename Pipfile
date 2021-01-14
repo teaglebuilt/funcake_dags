@@ -11,11 +11,14 @@ localstack = "*"
 moto = "*"
 tulflow = "==0.7.2"
 
-[packages]
+# TODO: Do we need these?
+# All of them are in tulflow and we don't use them directly in this module.
 pexpect = "*"
 xmltodict = "*"
 sickle = "*"
 awscli = "*"
+
+[packages]
 
 [requires]
 python_version = "3.6"
